@@ -1,6 +1,7 @@
 package com.example.employeemanagement.controller;
 
 import com.example.employeemanagement.model.Employee;
+import com.example.employeemanagement.exception.ResourceNotFoundException;
 import com.example.employeemanagement.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +27,7 @@ public class EmployeeController {
                 .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
         return ResponseEntity.ok().body(employee);
     }
+
 
 
 }
